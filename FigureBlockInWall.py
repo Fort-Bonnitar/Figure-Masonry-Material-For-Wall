@@ -1,3 +1,6 @@
+# Written by Fortbonnitar
+# Simple python script to figure materials for a masony built wall
+
 import math
 
 # Define the dimensions of the wall in feet
@@ -5,7 +8,7 @@ width = 8
 height = 8
 
 
-def calc_quantity(type_material, wall_size):
+def calc_quantity(type_material, wall_size):  #type materals can be either "brick" or "block"
   
   # Define the dimensions of a cinder block in feet
   cinder_block_length = 16  #inches
@@ -21,8 +24,11 @@ def calc_quantity(type_material, wall_size):
   
   if type_material == 'block':
     total = wall_sq_in / blocks_sq_in
+  if type_material == 'brick':
+    total = wall_sq_in / brick_sq_in    
   else:
-    total = wall_sq_in / brick_sq_in
+    print("Error please enter valid material type, only 'brick' or 'block' are valid inputs")
+    return
     
   # Print the result
   print(f"The minimum number of {type_material}s required to build the wall is: {math.ceil(total)}")
