@@ -1,4 +1,4 @@
-l# Written by Fortbonnitar
+# Written by Fortbonnitar
 # Simple python script to figure materials for a masony built wall
 
 import math
