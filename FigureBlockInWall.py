@@ -1,4 +1,4 @@
-# Written by Fortbonnitar
+l# Written by Fortbonnitar
 # Simple python script to figure materials for a masony built wall
 
 import math
@@ -24,7 +24,7 @@ def calc_quantity(type_material, wall_size):  #type materals can be either "bric
   
   if type_material == 'block':
     total = wall_sq_in / blocks_sq_in
-  if type_material == 'brick':
+  elif type_material == 'brick':
     total = wall_sq_in / brick_sq_in    
   else:
     print("Error please enter valid material type, only 'brick' or 'block' are valid inputs")
