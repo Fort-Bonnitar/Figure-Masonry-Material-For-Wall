@@ -1,19 +1,31 @@
+import math
+
 # Define the dimensions of the wall in feet
 width = 8
 height = 8
 
-# Define the dimensions of a cinder block in feet
-cinder_block_width = 16 / 12
-cinder_block_height = 8 / 12
 
-# Calculate the number of cinder blocks required per square foot
-blocks_per_sq_ft = 1 / (cinder_block_width * cinder_block_height)
+def calc_quantity(type_material, wall_size):
+  
+  # Define the dimensions of a cinder block in feet
+  cinder_block_length = 16  #inches
+  cinder_block_height = 8   #inches
+  blocks_sq_in = (cinder_block_length * cinder_block_height)
+  
+  brick_height = 3.625    #inches
+  brick_length = 7.625    #inches
+  brick_sq_in = (brick_length * brick_height)
+  
+  # Calculate the total wall area in square feet
+  wall_sq_in = (wall_size[0] * wall_size[1]) * 144  # Fix the conversion here
+  
+  if type_material == 'block':
+    total = wall_sq_in / blocks_sq_in
+  else:
+    total = wall_sq_in / brick_sq_in
+    
+  # Print the result
+  print(f"The minimum number of {type_material}s required to build the wall is: {math.ceil(total)}")
 
-# Calculate the total wall area in square feet
-wall_area = width * height
-
-# Calculate the total number of cinder blocks required
-total_blocks = wall_area * blocks_per_sq_ft
-
-# Print the result
-print(f"The number of cinder blocks required to build the wall is: {total_blocks:.2f}")
+calc_quantity('block', (width, height))
+calc_quantity('brick', (width, height))
